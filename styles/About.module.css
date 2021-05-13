@@ -1,0 +1,66 @@
+.heroContent{
+    margin-top: 2em;
+}
+
+.heroContent p {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.heroImg {
+    width: 100vh;
+    margin-top: 3em;
+}
+
+.section {
+    width: 80%;
+    max-width: 1080px;
+    margin: auto;
+    padding: 6em 0;
+}
+
+.mobileServices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5%;
+}
+
+.mobileServices .mobileImg img {
+    width: 100%;
+}
+
+.mobileServices .serviceItem {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5%;
+    margin: 2rem 0;
+}
+
+.mobileServices .serviceItem div img {
+    width: 5rem;
+    color: #fff;
+}
+
+.servicesWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.devTitle {
+    text-align: center;
+    padding: 2em 0;
+}
+
+.calList {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calList .calNum {
+    font-size: 4rem;
+    margin-right: 2rem;
+}
