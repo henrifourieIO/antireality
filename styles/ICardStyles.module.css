@@ -1,7 +1,6 @@
 .imgWrapper {
-    --size: 65px;
-    width: var(--size);
-    height: var(--size);
+    width: 65px;
+    height: 65px;
     display: flex;
     justify-content: center;
     align-items: center;

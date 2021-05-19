@@ -1,19 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans&display=swap');
 
-
 * {
   box-sizing: border-box;
+  
 }
-
 
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  color: var(--primary);
-  background: var(--secondary);
-  
+  background: var(--secondary) !important;
+  transition: 0.7s;
+  overflow-x: hidden;
+}
+
+p, h1, h2, h3, h4, h5, h6, a, span {
+  transition: 0.3s;
+  color: var(--primary) !important;
 }
 
 h1, h2, h4, h5 {
@@ -44,7 +48,6 @@ a {
   text-decoration: none;
 }
 
-
 .btn {
   border-radius: 0 !important;
   text-transform: uppercase;
@@ -56,6 +59,16 @@ a {
   background-color: var(--secondary);
   box-shadow:0px 0px 10px 20px var(--secondary) ;
   color: var(--primary) !important;
+  transition: 0.3s;
+  float: right;
+  width: 100%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.navbar a {
+  text-transform: uppercase;
+  text-align: right;
 }
 
 .btn:hover {
@@ -63,6 +76,15 @@ a {
   color: var(--secondary);
   background-color: var(--primary);
 }
+
+#basic-navbar-nav .navbar-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+
+}
+
+
 
 @media screen and (max-width: 700px) {
   h1 {
@@ -75,11 +97,17 @@ a {
   h3 {
     font-size: 1.2em;
   }
+  #basic-navbar-nav .navbar-nav {
+    align-items: flex-start;
+  }
 }
 
 .carousel-control-prev {
   display: none;
 }
 
-
-/* Background Color Change on scroll */
+.section {
+  width: 80%;
+  max-width: 1080px;
+  margin: auto;
+}

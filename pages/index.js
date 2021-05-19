@@ -5,122 +5,190 @@ import Link from 'next/link';
 import ContentCard from '../components/ContentCard';
 import ICard from '../components/ICard';
 import ContactSection from '../components/ContactSection';
-
-
+import React, { useState, useEffect } from 'react';
+import { createGlobalStyle } from 'styled-components';
+import Fade from 'react-reveal/Fade';
 
 
 export default function Home() {
 
+  const [logo, setLogo] = useState("/image/logo.png")
+
+  const [theme, setTheme] = useState(createGlobalStyle`
+    html {
+    --primary: #fff;
+    --secondary: #160121;
+    }
+  `)
+
+  const listenScrollEvent = (event) => {
+    const scrollSnap = document.getElementById('themeSwap');
+    const snapPostion = scrollSnap.offsetTop - 500;
+    if (window.innerWidth > 375) {
+      if (window.scrollY < snapPostion) {
+        setTheme(createGlobalStyle`
+        html {
+            --primary: #fff;
+            --secondary: #160121;
+        }
+    `)
+    setLogo("/image/logo.png")
+      } else if (window.scrollY > snapPostion) {
+        setTheme(createGlobalStyle`
+        html {
+            --primary: #160121;
+            --secondary: #fff;
+        }
+    `)
+    setLogo("/image/logo-dark.png")
+      }
+    }
+  }
+  const GlobalStyle = theme;
+
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent);
+
+    return () =>
+      window.removeEventListener('scroll', listenScrollEvent);
+  }, []);
+
   return (
     <>
+      <GlobalStyle />
       <Head>
         <title>Anti Reality</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/image/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous"></link>
       </Head>
 
-      <Nav />
+      <Nav 
+        logo={logo}
+      />
 
       <main>
         <section className={styles.hero}>
-          <div className={ styles.art }>
-            <img src="/cube.png" />
-            <img src="/cube.png" />
+          <div className={styles.art}>
+            <Fade left delay={400}><img src="/image/cube.png" /></Fade>
+            <Fade right delay={300}><img src="/image/cube.png" /></Fade>
+            
           </div>
-          <div className={ styles.heroWrapper }>
+          
+          <div className={styles.heroWrapper}>
+          <Fade bottom cascade>
             <h1>
-              WE CRAFT EXPERIENTIAL CAMPAIGNS
+            EXPERIENTIAL APPS, CAMPAIGNS & GAMES
             </h1>
             <h3>
               For brave South African companies
             </h3>
             <Link href="#pan">
-              <button type="button" class="btn btn-outline-light">What the heck?</button>
+              <button type="button" className="btn btn-outline-light">What the heck?</button>
             </Link>
-            
-            
+            </Fade>
           </div>
-          <div className={ styles.pointerDown }>
+          
+          <div className={styles.pointerDown}>
+            <Fade bottom>
             <Link href="/">
               <i className="fas fa-chevron-down"></i>
             </Link>
+            </Fade>
           </div>
         </section>
 
-        <section className={ styles.section } id="#pan">
-          <div className={ styles.container }>
+        <section className={styles.section}>
+          <div className={styles.container}>
             <div className={styles.cardGrid}>
-            <ContentCard 
-                  image="123Z_2101.w020.n001.946B.p15.946.png"
-                  title="Experiential Marketing Campaigns"
-                  body="Engage your audience like never before, with experiences that will stay with them for life."
-                />
-              <ContentCard 
-                  image="1994.png"
-                  title="Innovative Development Solutions"
-                  body="Solve your most complex tech problems & bring your ideas to life with the power of XR."
-                />
+              <Fade bottom>
+              <ContentCard
+                image="/image/123Z_2101.w020.n001.946B.p15.946.png"
+                title="Experiential Marketing Campaigns"
+                body="Engage your audience like never before, with experiences that will stay with them for life."
+              />
+              </Fade>
+              <Fade bottom delay={300}>
+              <ContentCard
+                image="/image/1994.png"
+                title="Innovative Development Solutions"
+                body="Solve your most complex tech problems & bring your ideas to life with the power of XR."
+              />
+              </Fade>
             </div>
           </div>
         </section>
 
-        <section className={styles.section } >
-          <div className={ styles.container }>
-            <div className={ styles.iCardGrid }>
-              <ICard 
-                image="game-development.png"
+        <section className={styles.section} >
+          <div className={styles.container}>
+            <div className={styles.iCardGrid}>
+            <Fade bottom>
+              <ICard
+                image="/image/game-development.png"
                 title="Game dev & design"
               />
-              <ICard 
-                image="virtual-reality-2.png"
+            </Fade>
+            <Fade bottom delay={100}>
+              <ICard
+                image="/image/virtual-reality-2.png"
                 title="Virtual reality"
               />
-              <ICard 
-                image="virtual-reality.png"
+              </Fade>
+              <Fade bottom delay={200}>
+              <ICard
+                image="/image/virtual-reality.png"
                 title="Augmented reality"
               />
-              <ICard 
-                image="Outline.png"
+              </Fade>
+              <Fade bottom delay={300}>
+              <ICard
+                image="/image/Outline.png"
                 title="Mixed reality"
               />
+              </Fade>
             </div>
           </div>
         </section>
 
-        <section className={ styles.section } id="scrollSnap">
-          <div className={ styles.titleMain }>
+        <section className={styles.section} id="themeSwap">
+        <Fade bottom cascade>
+          <div className={styles.titleMain}>
             <h4>Technologies We work with:</h4>
           </div>
-
           <div>
-            <table className={ styles.techTable }>
+            <table className={styles.techTable}>
+            <tbody>
               <tr>
-                <td><img src="1_KV3lq1ssjHg4Jf1xSzUXaQ.png"/></td>
-                <td><img src="1_lwof-6-Mi3LjJTuUEibUAg.png"/></td>
-                <td><img src="250106.png"/></td>
-                <td><img src="image-100115--1762514.png"/></td>
+                <td><img src="/image/1_KV3lq1ssjHg4Jf1xSzUXaQ.png" /></td>
+                <td><img src="/image/1_lwof-6-Mi3LjJTuUEibUAg.png" /></td>
+                <td><img src="/image/250106.png" /></td>
+                <td><img src="/image/image-100115--1762514.png" /></td>
               </tr>
               <tr>
-                <td><img src="logo-babylonjs-social-twitter.png"/></td>
-                <td><img src="Screenshot 2021-04-01 at 14.20.05.png"/></td>
-                <td><img src="Screenshot 2021-04-01 at 14.36.59.png"/></td>
-                <td><img src="uPL5o2aF_400x400.png"/></td>
+                <td><img src="/image/logo-babylonjs-social-twitter.png" /></td>
+                <td><img src="/image/Screenshot 2021-04-01 at 14.20.05.png" /></td>
+                <td><img src="/image/Screenshot 2021-04-01 at 14.36.59.png" /></td>
+                <td><img src="/image/uPL5o2aF_400x400.png" /></td>
               </tr>
+            </tbody>
             </table>
           </div>
+          </Fade>
         </section>
 
-        <section className={ styles.section }>
-          <div className={ styles.container }>
+        <section className={styles.section}>
+          <div className={styles.container}>
+            <Fade bottom>
             <ContactSection
-              image="wreck-ship-sunken-steamboat-ocean-sandy-bottom_107791-620.png"
+              image="/image/wreck-ship-sunken-steamboat-ocean-sandy-bottom_107791-620.png"
               title="Don’t get in touch"
               body="Unless you really want to innovate and leap ahead Of the competition"
               button="You ready?"
             />
+            </Fade>
           </div>
         </section>
+
       </main>
     </>
   )

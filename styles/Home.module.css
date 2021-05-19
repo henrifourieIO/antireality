@@ -53,6 +53,7 @@
 .section {
   background-color: var(--secondary);
   padding: 6em 0em;
+  transition: 0.7s;
 }
 
 .container {
