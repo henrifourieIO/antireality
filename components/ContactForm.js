@@ -83,7 +83,6 @@ export default function ContactForm() {
                     <ReCAPTCHA
                         ref={recaptchaRef}
                         sitekey="6LeXxt0aAAAAAGuA4ACoCaO6i0sbb7sZL_Ky8ffL"
-                        onChange={onChange}
                     />
                 <div>
                     <input type="submit" value="Send" className="btn" />
