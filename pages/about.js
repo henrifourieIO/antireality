@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Styles from '../styles/ServicePages.module.css';
 import React, { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
@@ -18,24 +19,22 @@ export default function about() {
     const listenScrollEvent = (event) => {
         const scrollSnap = document.getElementById('themeSwap');
         const snapPostion = scrollSnap.offsetTop - 300;
-        if (window.innerWidth > 375) {
-            if (window.scrollY < snapPostion) {
-                setTheme(createGlobalStyle`
+        if (window.scrollY < snapPostion) {
+            setTheme(createGlobalStyle`
         html {
             --primary: #fff;
             --secondary: #160121;
         }
     `)
-    setLogo("/image/logo.png")
-            } else if (window.scrollY > snapPostion) {
-                setTheme(createGlobalStyle`
+            setLogo("/image/logo.png")
+        } else if (window.scrollY > snapPostion) {
+            setTheme(createGlobalStyle`
         html {
             --primary: #160121;
             --secondary: #fff;
         }
     `)
-    setLogo("/image/logo-dark.png")
-            }
+            setLogo("/image/logo-dark.png")
         }
     }
     const GlobalStyle = theme;
@@ -53,6 +52,11 @@ export default function about() {
 
     return (
         <>
+            <Head>
+                <title>About | Anti Reality</title>
+                <link rel="icon" href="/image/favicon.ico" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
             <GlobalStyle />
             <Nav
                 logo={logo}
@@ -60,60 +64,64 @@ export default function about() {
 
             <main className="section">
                 <section className={Styles.section}>
+
                     <div className={Styles.aboutGrid}>
-                        <Fade bottom cascade>
-                        <div>
-                            <img src="image/a-image.png" className={Styles.img} />
-                        </div>
-                        <div>
-                            <h2>
-                                ABOUT ANTIREALITY INNOVATIVE SPATIAL SOLUTIONS CO & PARTNERS
-                            </h2>
-                            <p>
-                                We create audacious brand experiences, for when SA brands need a little more than traditional campaigns.
-                            </p>
-                        </div>
+                        <Fade bottom>
+                            <div>
+                                <img src="image/shutterstock_1915346521-01.png" className={Styles.img} />
+                            </div>
+                        </Fade>
+                        <Fade bottom>
+                            <div>
+                                <h2>
+                                    ABOUT ANTIREALITY INNOVATIVE SPATIAL SOLUTIONS CO & PARTNERS
+                                </h2>
+                                <p>
+                                    We create audacious brand experiences, for when SA brands need a little more than traditional campaigns.
+                                </p>
+                            </div>
                         </Fade>
                     </div>
+
                 </section>
                 <section className={Styles.section}>
                     <div className={Styles.semiDubGrid}>
-                    <Fade bottom cascade delay={2000}>
-                        <div></div>
-                        <div>
-                            <img src="/image/525.png" className={Styles.img} />
-                        </div>
-                        <div>
-                            <p>
-                                Anti is a South African-based, innovative marketing and development
-                                company, We’re simply creating experiential campaigns and products
-                                that help brands achieve their marketing objectives.
-                            </p>
-                            <p>
-                                It’s not about the technology, it’s how we integrate it into our campaigns.
-                            </p>
-                        </div>
+                        <Fade bottom cascade delay={2000}>
+                            <div></div>
+                            <div>
+                                <img src="/image/525.png" className={Styles.img} />
+                            </div>
+                            <div>
+                                <p>
+                                    Anti is a South African-based, innovative marketing and development
+                                    company, We’re simply creating experiential campaigns and products
+                                    that help brands achieve their marketing objectives.
+                                </p>
+                                <p>
+                                    It’s not about the technology, it’s how we integrate it into our campaigns.
+                                </p>
+                            </div>
                         </Fade>
                     </div>
                 </section>
 
                 <section className={Styles.section} id="themeSwap">
                     <div className={Styles.devTitle}>
-                    <Fade cascade bottom>
-                        <h4>THE ANTI TEAM</h4>
-                    </Fade>
+                        <Fade cascade bottom>
+                            <h4>THE ANTI TEAM</h4>
+                        </Fade>
                     </div>
                     <div className={Styles.grid}>
                         <Fade bottom>
-                        <div>
-                            <img src="/image/mik-pic.png" className={Styles.img} />
-                            <div className={Styles.teamCardContent}>
-                                <h5>Mik Adler</h5>
-                                <p>Campaign strategy & operations</p>
+                            <div>
+                                <img src="/image/mik-pic.png" className={Styles.img} />
+                                <div className={Styles.teamCardContent}>
+                                    <h5>Mik Adler</h5>
+                                    <p>Campaign strategy & operations</p>
+                                </div>
                             </div>
-                        </div>
                         </Fade>
-                        <Fade bottom duration={2000}>
+                        {/* <Fade bottom duration={2000}>
                         <div>
                             <img src="/image/Rectangle 846.svg" className={Styles.img} />
                             <div className={Styles.teamCardContent}>
@@ -121,24 +129,24 @@ export default function about() {
                                 <p>Virtual, augmented & mixed Reality developer</p>
                             </div>
                         </div>
-                        </Fade>
+                        </Fade> */}
                         <Fade bottom duration={2000}>
-                        <div>
-                            <img src="/image/mickey-pic.png" className={Styles.img} />
-                            <div className={Styles.teamCardContent}>
-                                <h5>Michele caforio</h5>
-                                <p>Character and environment Animator</p>
+                            <div>
+                                <img src="/image/mickey-pic.png" className={Styles.img} />
+                                <div className={Styles.teamCardContent}>
+                                    <h5>Michele caforio</h5>
+                                    <p>Character and environment Animator</p>
+                                </div>
                             </div>
-                        </div>
                         </Fade>
                         <Fade bottom>
-                        <div>
-                            <img src="/image/girl-pic.png" className={Styles.img} />
-                            <div className={Styles.teamCardContent}>
-                                <h5>Jennifer prytz</h5>
-                                <p>Unity & game developer</p>
+                            <div>
+                                <img src="/image/girl-pic.png" className={Styles.img} />
+                                <div className={Styles.teamCardContent}>
+                                    <h5>Jennifer prytz</h5>
+                                    <p>Unity & game developer</p>
+                                </div>
                             </div>
-                        </div>
                         </Fade>
                     </div>
                 </section>

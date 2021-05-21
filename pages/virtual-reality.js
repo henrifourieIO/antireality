@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Nav from '../components/Nav';
 import Styles from '../styles/ServicePages.module.css';
 import ContentCard from '../components/ContentCard';
@@ -20,24 +21,22 @@ export default function virtualReality() {
     const listenScrollEvent = (event) => {
         const scrollSnap = document.getElementById('themeSwap');
         const snapPostion = scrollSnap.offsetTop - 500;
-        if (window.innerWidth > 375) {
-            if (window.scrollY < snapPostion) {
-                setTheme(createGlobalStyle`
+        if (window.scrollY < snapPostion) {
+            setTheme(createGlobalStyle`
         html {
             --primary: #160121;
             --secondary: #fff;
         }
     `)
-    setLogo("/image/logo-dark.png")
-            } else if (window.scrollY > snapPostion) {
-                setTheme(createGlobalStyle`
+            setLogo("/image/logo-dark.png")
+        } else if (window.scrollY > snapPostion) {
+            setTheme(createGlobalStyle`
         html {
             --primary: #fff;
             --secondary: #160121;
         }
     `)
-    setLogo("/image/logo.png")
-            }
+            setLogo("/image/logo.png")
         }
     }
     const GlobalStyle = theme;
@@ -56,23 +55,28 @@ export default function virtualReality() {
 
     return (
         <>
+            <Head>
+                <title> Virtual Reality | Anti Reality</title>
+                <link rel="icon" href="/image/favicon.ico" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
             <GlobalStyle />
             <Nav
-            logo={logo}
+                logo={logo}
             />
 
             <main className="section">
                 <section className={Styles.section}>
                     <Fade left>
-                    <div>
-                        <img src="/image/Mask Group 172.png" className={Styles.heroImg} />
-                    </div>
+                        <div>
+                            <img src="/image/Mask Group 172.png" className={Styles.heroImg} />
+                        </div>
                     </Fade>
                     <Fade cascade bottom delay={1000}>
-                    <div className={Styles.heroContent}>
-                        <h4>VIRTUAL REALITY</h4>
-                        <p>FOR AN IMMERSIVE, UNFORGETTABLE EXPERIENCE</p>
-                    </div>
+                        <div className={Styles.heroContent}>
+                            <h4>VIRTUAL REALITY</h4>
+                            <p>FOR AN IMMERSIVE, UNFORGETTABLE EXPERIENCE</p>
+                        </div>
                     </Fade>
                 </section>
 
@@ -80,21 +84,21 @@ export default function virtualReality() {
                     <div className={Styles.container}>
                         <div className={Styles.cardGrid}>
                             <Fade bottom>
-                            <ContentCard
-                                image="/image/3381.png"
-                                title="Virtual reality Experiences & games"
-                                body="We craft unforgettable vr games and experiences, 
+                                <ContentCard
+                                    image="/image/3381.png"
+                                    title="Virtual reality Experiences & games"
+                                    body="We craft unforgettable vr games and experiences, 
                                 Helping brands engage their audience - like never Before!"
-                            />
+                                />
                             </Fade>
                             <Fade bottom delay={300}>
-                            <ContentCard
-                                image="/image/1849.png"
-                                title="Virtual reality Applications & Solutions"
-                                body="Its not all fun and games, we also conceptualise, 
+                                <ContentCard
+                                    image="/image/1849.png"
+                                    title="Virtual reality Applications & Solutions"
+                                    body="Its not all fun and games, we also conceptualise, 
                                 Design and develop vr solutions for companies. Helping 
                                 them save money or increase work efficiency."
-                            />
+                                />
                             </Fade>
                         </div>
                     </div>
@@ -103,59 +107,59 @@ export default function virtualReality() {
                 <section className={Styles.section} id="themeSwap">
                     <div className={Styles.container}>
                         <div className={Styles.iCardGrid}>
-                        <Fade bottom>
-                            <ICard
-                                image="/image/market.png"
-                                title="Retail"
-                            />
+                            <Fade bottom>
+                                <ICard
+                                    image="/image/market.png"
+                                    title="Retail"
+                                />
                             </Fade>
                             <Fade bottom>
-                            <ICard
-                                image="/image/bank.png"
-                                title="Finance & banking"
-                            />
+                                <ICard
+                                    image="/image/bank.png"
+                                    title="Finance & banking"
+                                />
                             </Fade>
                             <Fade bottom>
-                            <ICard
-                                image="/image/online-shop.png"
-                                title="E-commerce"
-                            />
+                                <ICard
+                                    image="/image/online-shop.png"
+                                    title="E-commerce"
+                                />
                             </Fade>
                             <Fade bottom>
-                            <ICard
-                                image="/image/Outline.png"
-                                title="healthcare"
-                            />
+                                <ICard
+                                    image="/image/Outline.png"
+                                    title="healthcare"
+                                />
                             </Fade>
                             <Fade bottom>
-                            <ICard
-                                image="/image/Outline.png"
-                                title="Engineering"
-                            />
+                                <ICard
+                                    image="/image/Outline.png"
+                                    title="Engineering"
+                                />
                             </Fade>
                             <Fade bottom>
-                            <ICard
-                                image="/image/video.png"
-                                title="Entertainment"
-                            />
+                                <ICard
+                                    image="/image/video.png"
+                                    title="Entertainment"
+                                />
                             </Fade>
                             <Fade bottom>
-                            <ICard
-                                image="/image/mortarboard.png"
-                                title="Education"
-                            />
+                                <ICard
+                                    image="/image/mortarboard.png"
+                                    title="Education"
+                                />
                             </Fade>
                             <Fade bottom>
-                            <ICard
-                                image="/image/house.png"
-                                title="Real estate"
-                            />
+                                <ICard
+                                    image="/image/house.png"
+                                    title="Real estate"
+                                />
                             </Fade>
                             <Fade bottom>
-                            <ICard
-                                image="/image/interactive.png"
-                                title="Multimedia"
-                            />
+                                <ICard
+                                    image="/image/interactive.png"
+                                    title="Multimedia"
+                                />
                             </Fade>
                         </div>
                     </div>
@@ -165,21 +169,21 @@ export default function virtualReality() {
                     <div className={Styles.container}>
                         <div className={Styles.devTitle}>
                             <Fade cascade bottom>
-                            <h4>Our capabilities</h4>
+                                <h4>Our capabilities</h4>
                             </Fade>
                         </div>
                         <div className={Styles.cardGrid}>
                             <Fade bottom>
-                            <ContentCard
-                                image="/image/shutterstock_776789038 [Converted]-01.png"
-                                title="Native vr apps For headsets & Mobile"
-                            />
+                                <ContentCard
+                                    image="/image/shutterstock_776789038-01.png"
+                                    title="Native vr apps For headsets & Mobile"
+                                />
                             </Fade>
                             <Fade bottom delay={300}>
-                            <ContentCard
-                                image="/image/180.png"
-                                title="Web-based vr For mobile"
-                            />
+                                <ContentCard
+                                    image="/image/180.png"
+                                    title="Web-based vr For mobile"
+                                />
                             </Fade>
                         </div>
                     </div>
@@ -188,13 +192,13 @@ export default function virtualReality() {
                 <section className={Styles.section}>
                     <div className={Styles.container}>
                         <Fade bottom>
-                        <ContactSection
-                            image="/image/wreck-ship-sunken-steamboat-ocean-sandy-bottom_107791-620.png"
-                            title="Don’t be afraid"
-                            body="That we’re still building our portfolio. Get In touch to take advantage
+                            <ContactSection
+                                image="/image/wreck-ship-sunken-steamboat-ocean-sandy-bottom_107791-620.png"
+                                title="Don’t be afraid"
+                                body="That we’re still building our portfolio. Get In touch to take advantage
                              of our favourable Rates while we’re still feeling generous."
-                            button="Brief us"
-                        />
+                                button="Brief us"
+                            />
                         </Fade>
                     </div>
                 </section>

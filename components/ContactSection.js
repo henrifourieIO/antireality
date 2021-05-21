@@ -12,7 +12,7 @@ export default function ContactSection(props) {
             <div>
                 <h4>{ props.title }</h4>
                 <p>{ props.body }</p>
-                <Link href="mailto:hello@antireality.co.za" >
+                <Link href="/contact" >
                     <button className="btn btn-outline-light">{ props.button }</button>
                 </Link>
             </div>

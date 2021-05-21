@@ -5,9 +5,9 @@ export default function ICard(props) {
     return (
         <div className={ICardStyles.card}>
             <div className={ICardStyles.imgWrapper}>
-            <img
+            <img 
             src={props.image}
-            alt=""
+            id="icon"
             />
 
             </div>
