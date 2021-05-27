@@ -138,12 +138,12 @@
         grid-template-columns: 1fr;
     }
 
-    .nav {
-        font-size: 2rem;
+    .nav ul li {
+        font-size: 1.5rem;
     }
 
     .contact span {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 800;
     }
 
