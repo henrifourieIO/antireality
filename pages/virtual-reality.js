@@ -109,54 +109,63 @@ export default function virtualReality() {
                         <div className={Styles.iCardGrid}>
                             <Fade bottom>
                                 <ICard
+                                    link="#"
                                     image="/image/market.png"
                                     title="Retail"
                                 />
                             </Fade>
                             <Fade bottom>
                                 <ICard
+                                    link="#"
                                     image="/image/bank.png"
                                     title="Finance & banking"
                                 />
                             </Fade>
                             <Fade bottom>
                                 <ICard
+                                    link="#"
                                     image="/image/online-shop.png"
                                     title="E-commerce"
                                 />
                             </Fade>
                             <Fade bottom>
                                 <ICard
+                                    link="#"
                                     image="/image/Outline.png"
                                     title="healthcare"
                                 />
                             </Fade>
                             <Fade bottom>
                                 <ICard
+                                    link="#"
                                     image="/image/Outline.png"
                                     title="Engineering"
                                 />
                             </Fade>
                             <Fade bottom>
                                 <ICard
+                                    link="#"
                                     image="/image/video.png"
                                     title="Entertainment"
                                 />
                             </Fade>
                             <Fade bottom>
                                 <ICard
+                                    link="#"
                                     image="/image/mortarboard.png"
                                     title="Education"
                                 />
                             </Fade>
                             <Fade bottom>
                                 <ICard
+                                    link="#"
                                     image="/image/house.png"
                                     title="Real estate"
                                 />
                             </Fade>
                             <Fade bottom>
                                 <ICard
+                                    link="#"
                                     image="/image/interactive.png"
                                     title="Multimedia"
                                 />

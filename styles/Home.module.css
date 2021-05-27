@@ -50,8 +50,7 @@
 }
 
 .section {
-  background-color: var(--secondary);
-  padding: 6em 0em;
+  padding: 4em 0em;
   transition: 0.7s;
 }
 
@@ -138,6 +137,9 @@
     grid-template-rows: auto;
   }
 
+  .section {
+    padding: 1em 0em;
+  }
 
 }
 

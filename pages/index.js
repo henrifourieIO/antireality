@@ -8,7 +8,7 @@ import ContactSection from '../components/ContactSection';
 import React, { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import Fade from 'react-reveal/Fade';
-
+import CaseStudy from '../components/CaseStudy';
 
 export default function Home() {
 
@@ -70,7 +70,7 @@ export default function Home() {
         logo={logo}
       />
       <GlobalStyle />
-      <main>
+      <main id="page-wrap">
         <section className={styles.hero}>
           <div className={styles.art}>
             <Fade left delay={400}><img src="/image/cube.png" /></Fade>
@@ -86,7 +86,7 @@ export default function Home() {
               <h3>
                 For brave South African companies
               </h3>
-              <Link href="#pan">
+              <Link href="/about">
                 <button type="button" className="btn btn-outline-light">What the heck?</button>
               </Link>
             </Fade>
@@ -127,24 +127,28 @@ export default function Home() {
             <div className={styles.iCardGrid}>
               <Fade bottom>
                 <ICard
+                  link="/mobile-games"
                   image="/image/game-development.png"
                   title="Game dev & design"
                 />
               </Fade>
               <Fade bottom delay={100}>
                 <ICard
+                  link="/virtual-reality"
                   image="/image/virtual-reality-2.png"
                   title="Virtual reality"
                 />
               </Fade>
               <Fade bottom delay={200}>
                 <ICard
+                  link="/augmented-reality"
                   image="/image/virtual-reality.png"
                   title="Augmented reality"
                 />
               </Fade>
               <Fade bottom delay={300}>
                 <ICard
+                  link="/mixed-reality"
                   image="/image/Outline.png"
                   title="Mixed reality"
                 />
@@ -152,8 +156,10 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <div id="themeSwap"></div>
+        <CaseStudy />
 
-        <section className={styles.section} id="themeSwap">
+        <section className={styles.section} >
           <Fade bottom cascade>
             <div className={styles.titleMain}>
               <h4>Technologies We work with:</h4>

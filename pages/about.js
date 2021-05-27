@@ -74,7 +74,7 @@ export default function about() {
                         <Fade bottom>
                             <div>
                                 <h2>
-                                    ABOUT ANTIREALITY INNOVATIVE SPATIAL SOLUTIONS CO & PARTNERS
+                                    ANTIREALITY INNOVATIVE SPATIAL SOLUTIONS CO & PARTNERS
                                 </h2>
                                 <p>
                                     We create audacious brand experiences, for when SA brands need a little more than traditional campaigns.

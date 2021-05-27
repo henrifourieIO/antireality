@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
 
     return (
         <>
-            <Component {...pageProps} />
+            <Component {...pageProps} id="outer-container" />
             <Footer />
         </>
     )

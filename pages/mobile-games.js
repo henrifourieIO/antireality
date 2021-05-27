@@ -7,6 +7,7 @@ import { createGlobalStyle } from 'styled-components';
 import CorItem from '../components/gameDevProcessCor';
 import ContactSection from '../components/ContactSection';
 import Fade from 'react-reveal/Fade';
+import CaseStudy from '../components/CaseStudy'
 
 export default function mobileGames() {
 
@@ -130,7 +131,10 @@ export default function mobileGames() {
                     </div>
                 </section>
 
-                <section className={AboutStyles.section} id="themeSwap">
+                <div id="themeSwap"></div>
+                <CaseStudy />
+
+                <section className={AboutStyles.section}>
                     <div className={AboutStyles.devTitle}>
                         <Fade bottom cascade>
                             <h2>Our game development process</h2>
