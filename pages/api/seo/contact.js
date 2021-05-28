@@ -1,5 +1,3 @@
-const WORDPRESS_API_URL = process.env.WORDPRESS_API_URL;
-
 async function fetchAPI () {
     const headers = { 'Content-Type': 'application/json' }
     

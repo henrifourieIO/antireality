@@ -6,7 +6,7 @@ import Nav from '../components/Nav';
 import Fade from 'react-reveal/Fade';
 
 export async function getStaticProps(context) {
-    const res = await fetch(`http://${process.env.URL}/api/seo/about`)
+    const res = await fetch(`https://${process.env.URL}/api/seo/about`)
     const data = await res.json()
   
     if (!data) {
@@ -16,7 +16,7 @@ export async function getStaticProps(context) {
     }
   
     return {
-      props: { data }, // will be passed to the page component as props
+      props: { data },
     }
   }
 

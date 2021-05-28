@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 export async function getStaticProps(context) {
-    const res = await fetch(`http://${process.env.URL}/api/seo/contact`)
+    const res = await fetch(`https://${process.env.URL}/api/seo/contact`)
     const data = await res.json()
   
     if (!data) {
