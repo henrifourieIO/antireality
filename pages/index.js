@@ -11,7 +11,12 @@ import Fade from 'react-reveal/Fade';
 import CaseStudy from '../components/CaseStudy';
 
 export async function getStaticProps(context) {
-  const res = await fetch(`https://${process.env.URL}/api/seo/home`)
+  const res = await fetch(`https://${process.env.URL}/api/seo/home`, {
+    headers: {
+        Accept: 'application/json, text/plain, */*',
+        'User-Agent': '*',
+      },
+})
   const data = await res.json()
 
   if (!data) {

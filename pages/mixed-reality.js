@@ -9,7 +9,12 @@ import ContactSection from '../components/ContactSection';
 import Fade from 'react-reveal/Fade';
 
 export async function getStaticProps(context) {
-    const res = await fetch(`https://${process.env.URL}/api/seo/mixed-reality`)
+    const res = await fetch(`https://${process.env.URL}/api/seo/mixed-reality`, {
+        headers: {
+            Accept: 'application/json, text/plain, */*',
+            'User-Agent': '*',
+          },
+    })
     const data = await res.json()
   
     if (!data) {
