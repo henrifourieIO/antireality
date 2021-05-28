@@ -50,7 +50,7 @@ export async function getStaticProps() {
     }
   }
 
-export default function Contact({data}) {
+export default function Contact(data) {
     console.log(data)
     const logo = "/image/logo.png";
 
