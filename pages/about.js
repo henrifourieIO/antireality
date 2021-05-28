@@ -6,7 +6,7 @@ import Nav from '../components/Nav';
 import Fade from 'react-reveal/Fade';
 
 export async function getStaticProps(context) {
-    const res = await fetch(`http://${process.env.VERCEL_URL}/api/seo/about`)
+    const res = await fetch(`http://${process.env.URL}/api/seo/about`)
     const data = await res.json()
   
     if (!data) {
