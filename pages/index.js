@@ -10,27 +10,50 @@ import { createGlobalStyle } from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import CaseStudy from '../components/CaseStudy';
 
-export async function getStaticProps(context) {
-  const res = await fetch(`https://${process.env.URL}/api/seo/home`, {
-    headers: {
-        Accept: 'application/json, text/plain, */*',
-        'User-Agent': '*',
-      },
-})
-  const data = await res.json()
+export async function getStaticProps() {
+  const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json, text/plain, */*',
+  'User-Agent': '*', }
+  
+  const res = await fetch(`${process.env.WORDPRESS_API_URL}`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({
+          query: 
+          `
+              query MyQuery {
+                  page(id: "cG9zdDo3") {
+                  seo {
+                      metaDesc
+                      focuskw
+                      metaKeywords
+                      title
+                      twitterTitle
+                      twitterDescription
+                  }
+                  slug
+                  }
+              }
+          `
+      })
+  })
 
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
+  const json = await res.json()
+  
 
   return {
-    props: { data }, // will be passed to the page component as props
+      props: {
+          metaDesc: json.data.page.seo.metaDesc,
+          focuskw: json.data.page.seo.focuskw,
+          metaKeywords: json.data.page.seo.metaKeywords,
+          title: json.data.page.seo.title,
+          twitterTitle: json.data.page.seo.twitterTitle,
+          twitterDescription: json.data.page.seo.twitterDescription,
+          slug: json.data.page.slug,
+      },
   }
 }
 
-export default function Home({data}) {
+export default function Home( data ) {
 
   const [logo, setLogo] = useState("/image/logo.png")
 
@@ -77,7 +100,7 @@ export default function Home({data}) {
       window.removeEventListener('scroll', listenScrollEvent);
   }, []);
 
-  
+ 
 
   return (
     <>

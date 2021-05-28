@@ -9,26 +9,51 @@ import ContactSection from '../components/ContactSection';
 import Fade from 'react-reveal/Fade';
 
 export async function getStaticProps(context) {
-    const res = await fetch(`https://${process.env.URL}/api/seo/augmented-reality`, {
-        headers: {
-            Accept: 'application/json, text/plain, */*',
-            'User-Agent': '*',
-          },
+    const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json, text/plain, */*',
+    'User-Agent': '*', }
+    
+    const fetchAPI = await fetch("https://backend.antireality.co.za/ql", {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+            query: 
+            `
+                query MyQuery {
+                    page(id: "cG9zdDo2Mw==") {
+                    seo {
+                        metaDesc
+                        focuskw
+                        metaKeywords
+                        title
+                        twitterTitle
+                        twitterDescription
+                    }
+                    slug
+                    }
+                }
+            `
+        })
     })
-    const data = await res.json()
-  
-    if (!data) {
-      return {
-        notFound: true,
-      }
+
+    const json = await fetchAPI.json()
+    if (json.errors) {
+      console.error(json.errors)
+      throw new Error('Failed to fetch API')
     }
-  
     return {
-      props: { data }, // will be passed to the page component as props
+        props: {
+            metaDesc: json.data.page.seo.metaDesc,
+            focuskw: json.data.page.seo.focuskw,
+            metaKeywords: json.data.page.seo.metaKeywords,
+            title: json.data.page.seo.title,
+            twitterTitle: json.data.page.seo.twitterTitle,
+            twitterDescription: json.data.page.seo.twitterDescription,
+            slug: json.data.page.slug,
+        },
     }
   }
 
-export default function augmentedReality({data}) {
+export default function augmentedReality(data) {
 
     const [logo, setLogo] = useState("/image/logo-dark.png")
 

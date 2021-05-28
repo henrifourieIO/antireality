@@ -10,26 +10,47 @@ import Fade from 'react-reveal/Fade';
 import CaseStudy from '../components/CaseStudy'
 
 export async function getStaticProps(context) {
-    const res = await fetch(`https://${process.env.URL}/api/seo/mobile-games`, {
-        headers: {
-            Accept: 'application/json, text/plain, */*',
-            'User-Agent': '*',
-          },
+    method: "POST",
+    headers,
+    body: JSON.stringify({
+        query: 
+        `
+            query MyQuery {
+                page(id: "cG9zdDo2OQ==") {
+                seo {
+                    metaDesc
+                    focuskw
+                    metaKeywords
+                    title
+                    twitterTitle
+                    twitterDescription
+                }
+                slug
+                }
+            }
+        `
     })
-    const data = await res.json()
-  
-    if (!data) {
-      return {
-        notFound: true,
-      }
-    }
-  
-    return {
-      props: { data }, // will be passed to the page component as props
-    }
+})
+
+const json = await fetchAPI.json()
+if (json.errors) {
+  console.error(json.errors)
+  throw new Error('Failed to fetch API')
+}
+return {
+    props: {
+        metaDesc: json.data.page.seo.metaDesc,
+        focuskw: json.data.page.seo.focuskw,
+        metaKeywords: json.data.page.seo.metaKeywords,
+        title: json.data.page.seo.title,
+        twitterTitle: json.data.page.seo.twitterTitle,
+        twitterDescription: json.data.page.seo.twitterDescription,
+        slug: json.data.page.slug,
+    },
+}
   }
 
-export default function mobileGames({data}) {
+export default function mobileGames(data) {
 
     const [logo, setLogo] = useState("/image/logo-dark.png")
 
