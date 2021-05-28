@@ -9,7 +9,7 @@ import ContactSection from '../components/ContactSection';
 import Fade from 'react-reveal/Fade';
 
 export async function getStaticProps(context) {
-    const res = await fetch(`http://localhost:3000/api/seo/augmented-reality`)
+    const res = await fetch(`http://${process.env.VERCEL_URL}/api/seo/augmented-reality`)
     const data = await res.json()
   
     if (!data) {

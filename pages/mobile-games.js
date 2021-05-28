@@ -10,7 +10,7 @@ import Fade from 'react-reveal/Fade';
 import CaseStudy from '../components/CaseStudy'
 
 export async function getStaticProps(context) {
-    const res = await fetch(`http://localhost:3000/api/seo/mobile-games`)
+    const res = await fetch(`http://${process.env.VERCEL_URL}/api/seo/mobile-games`)
     const data = await res.json()
   
     if (!data) {
