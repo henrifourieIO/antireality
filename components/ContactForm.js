@@ -4,7 +4,10 @@ import { useState } from 'react';
 import emailjs from 'emailjs-com';
 const recaptchaRef = React.createRef();
 
-
+const EMAILJS_SERVICE_ID = process.env.EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID;
+const EMAILJS_USER_ID = process.env.EMAILJS_USER_ID;
+const RECAPTCHA_SITEKEY = process.env.RECAPTCHA_SITEKEY;
 
 export default function ContactForm() {
 
@@ -14,7 +17,7 @@ export default function ContactForm() {
     function sendEmail(e) {
         e.preventDefault();
 
-        emailjs.sendForm('service_83upfed', 'template_tmmicr4', e.target, 'user_KercxwWPwPKV53JpOtz81').then((result) => {
+        emailjs.sendForm('EMAILJS_SERVICE_ID', 'EMAILJS_TEMPLATE_ID', e.target, 'EMAILJS_USER_ID').then((result) => {
             setSuccess(true)
             handleSuccessMessage()
         }, (error) => {
@@ -82,7 +85,7 @@ export default function ContactForm() {
                 </div>
                     <ReCAPTCHA
                         ref={recaptchaRef}
-                        sitekey="6LeXxt0aAAAAAGuA4ACoCaO6i0sbb7sZL_Ky8ffL"
+                        sitekey="RECAPTCHA_SITEKEY"
                     />
                 <div>
                     <input type="submit" value="Send" className="btn" />

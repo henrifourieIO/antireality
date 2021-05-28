@@ -84,8 +84,8 @@ export default function Nav(props) {
     <nav >
       <div className={styles.header}>
         <div className={styles.navBar}>
-          <div>
-            <Img src={props.logo} width={200} height={55} />
+          <div  style={{cursor: "pointer"}}>
+            <Lnk href="/"><Img src={props.logo} width={200} height={55}/></Lnk>
           </div>
           <Button />
         </div>

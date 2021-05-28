@@ -8,7 +8,22 @@ import { createGlobalStyle } from 'styled-components';
 import ContactSection from '../components/ContactSection';
 import Fade from 'react-reveal/Fade';
 
-export default function augmentedReality() {
+export async function getStaticProps(context) {
+    const res = await fetch(`http://localhost:3000/api/seo/augmented-reality`)
+    const data = await res.json()
+  
+    if (!data) {
+      return {
+        notFound: true,
+      }
+    }
+  
+    return {
+      props: { data }, // will be passed to the page component as props
+    }
+  }
+
+export default function augmentedReality({data}) {
 
     const [logo, setLogo] = useState("/image/logo-dark.png")
 
@@ -57,9 +72,13 @@ export default function augmentedReality() {
     return (
         <>
             <Head>
-                <title>Augmented Reality | Anti Reality</title>
+                <title>{data.title}</title>
                 <link rel="icon" href="/image/favicon.ico" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="description" content={data.metaDesc} />
+                <meta name="keywords" content={data.metaKeywords} />
+                <meta property="og:title" content={data.twitterTitle} />
+                <meta property="og:description" content={data.twitterDescription} />
             </Head>
             <GlobalStyle />
             <Nav
