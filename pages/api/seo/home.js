@@ -1,5 +1,6 @@
 async function fetchAPI () {
-    const headers = { 'Content-Type': 'application/json' }
+    const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json, text/plain, */*',
+    'User-Agent': '*', }
     
     const fetchAPI = await fetch("https://backend.antireality.co.za/ql", {
         method: "POST",
