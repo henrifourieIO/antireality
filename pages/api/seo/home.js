@@ -46,5 +46,5 @@ async function fetchAPI () {
 
 export default async (req, res) => {
     const data = await fetchAPI()
-    await res.status(200).json(data.props)
+    await res.status(200).json(JSON.stringify(data.props))
 }
