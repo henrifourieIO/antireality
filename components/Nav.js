@@ -68,7 +68,7 @@ const Navigation = () => {
           <Fade bottom delay={1600}>
           <span>Feeling Brave?!</span>
           <p>
-            <a href="mailto:hello@antireality.co.za">hello@antireality.co.za</a>
+            <a href="mailto:hello@mickeyxr.co.za">hello@mickeyxr.co.za</a>
           </p>
           </Fade>
         </div>
