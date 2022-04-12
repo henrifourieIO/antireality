@@ -112,6 +112,7 @@ export default function Home( data ) {
         <meta name="keywords" content={data.focuskw} />
         <meta property="og:title" content={data.twitterTitle} />
         <meta property="og:description" content={data.twitterDescription} />
+        
       </Head>
 
 
