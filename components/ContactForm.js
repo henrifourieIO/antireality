@@ -84,10 +84,10 @@ export default function ContactForm() {
                     <label>Brief</label>
                     <textarea name="brief" />
                 </div>
-                    <ReCAPTCHA
+                    {/* <ReCAPTCHA
                         ref={recaptchaRef}
-                        sitekey={RECAPTCHA_SITEKEY}
-                    />
+                        sitekey={RECAPTCHA_SITEKEY ? RECAPTCHA_SITEKEY : "6Lcy1msfAAAAAIQZO_ZYB6ipNlExTdR"-ekETua6s}
+                    /> */}
                 <div>
                     <input type="submit" value="Send" className="btn" />
                 </div>
